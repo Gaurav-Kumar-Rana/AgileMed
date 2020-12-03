@@ -1,0 +1,30 @@
+.App {
+  .nav-bar {
+    background-color: #2a2a2a;
+    button {
+      color: #fff;
+      font-size: 1rem;
+      text-transform: uppercase;
+      border-radius: 21px;
+      padding: 5px 30px;
+      transition: 0.4s all;
+      svg {
+        font-size: 1rem;
+        margin-right: 2px;
+      }
+      &.active {
+        background: #fff;
+        color: #000;
+      }
+    }
+    .menu-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .my-profile svg {
+      font-size: 30px;
+      padding: 0;
+    }
+  }
+}
