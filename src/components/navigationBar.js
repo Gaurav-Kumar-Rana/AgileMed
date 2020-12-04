@@ -43,7 +43,6 @@ export default function NavigationBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [activeMenu, setActiveMenu] = React.useState('Home');
-  const [showOverlay, setShowOverlay] = React.useState(false);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);

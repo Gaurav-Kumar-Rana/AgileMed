@@ -1,6 +1,4 @@
-.login-conatiner,
-.sigin-conatiner,
-.register-conatiner {
+.login-conatiner {
   width: 250px;
   background: #fff;
   margin-top: 30px;
@@ -10,6 +8,10 @@
   padding: 20px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
   color: #626262;
+}
+.login-conatiner,
+.sigin-conatiner,
+.register-conatiner {
   button {
     background-color: #0e97b6;
     color: #fff;
@@ -22,7 +24,7 @@
       color: #fff;
     }
   }
-  .signup-link {
+  .link {
     color: #0c88eb;
     text-decoration: underline;
     cursor: pointer;
@@ -32,9 +34,71 @@
   & > span {
     display: flex;
     text-align: left;
-    margin-bottom:20px ;
+    margin-bottom: 20px;
     &:nth-child(2) {
       padding: 30px 0;
     }
   }
+}
+.sigin-conatiner {
+  .dialog-scrollPaper {
+    max-height: 450px;
+  }
+}
+.register-conatiner {
+  .dialog-scrollPaper {
+    max-height: 530px;
+  }
+}
+.sigin-conatiner,
+.register-conatiner {
+  .close-btn {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #000;
+    box-shadow: 1px 1px 7px 1px rgba(0, 0, 0, 0.2);
+    top: 10px;
+    right: 10px;
+  }
+  .dialog-scrollPaper {
+    align-items: flex-start;
+  }
+  .dialog-paper {
+    margin: 0;
+  }
+  .banner-section {
+    background-image: url(../image/banner_1.png);
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 75%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  .form-section {
+    width: 450px;
+    max-width: 100%;
+    height: 100%;
+    border-left: 1px solid #d5d5d5;
+    background: #fff;
+    padding: 0px 60px;
+    h3 {
+      padding: 20px;
+      text-align: center;
+    }
+    .form-elem {
+      margin-bottom: 16px;
+      width: 100%;
+    }
+    .link {
+      margin: 20px 0;
+    }
+  }
+}
+.show-nav-dialog-overlay {
+  top: 65px !important;
 }

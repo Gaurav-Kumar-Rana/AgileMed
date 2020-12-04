@@ -1,12 +1,10 @@
 import React from 'react';
-import Login from '../components/login';
+import TopSection from '../components/topSection';
 
 export default function HomePage() {
   return (
     <div className="home-page">
-      <div className="top-section">
-        <Login />
-      </div>
+      <TopSection/>
     </div>
   );
 }

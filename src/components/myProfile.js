@@ -27,7 +27,7 @@ export default function MyProfile(props) {
           <AppIcon iconName="AccountCircle" />
         </IconButton>
         <div className={'info-section'}>
-          <img src={userData.profilepic} />
+          <img src={userData.profilepic} alt="profile pic"/>
           <div className={'info-panel'}>
             <span>{userData.name}</span>
             <span>{userData.phoneno}</span>
