@@ -1,0 +1,19 @@
+.red-text {
+  color: red;
+}
+.red-bg {
+  background-color: red;
+}
+.badge {
+  &.red-bg {
+    span {
+      background-color: inherit;
+      color: #fff;
+    }
+  }
+}
+.top-section {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}

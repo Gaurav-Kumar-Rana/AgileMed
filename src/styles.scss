@@ -11,5 +11,9 @@ a {
   font-family: sans-serif;
   text-align: center;
 }
-
+@import './css/common.scss';
 @import './css/navigationBar.scss';
+@import './css/overlay.scss';
+@import './css/myProfile.scss';
+@import './css/login.scss';
+@import './css/homePage.scss';

@@ -7,4 +7,10 @@ const navigationData = [
   { isNavigationmenu: false, manuname: 'Profile', menuicon: 'AccountCircle', menulink: '#' },
 ];
 
-export { navigationData };
+const userData = {
+  name: 'David Reynold',
+  phoneno: '+91 98410 98410',
+  profilepic: 'https://cdn1.iconfinder.com/data/icons/flat-character-color-1/60/flat-design-character_2-512.png',
+};
+
+export { navigationData, userData };

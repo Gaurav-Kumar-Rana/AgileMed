@@ -1,0 +1,40 @@
+.login-conatiner,
+.sigin-conatiner,
+.register-conatiner {
+  width: 250px;
+  background: #fff;
+  margin-top: 30px;
+  margin-right: 60px;
+  min-height: 200px;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+  color: #626262;
+  button {
+    background-color: #0e97b6;
+    color: #fff;
+    border-radius: 0px;
+    padding: 5px 30px;
+    width: 100%;
+    &:hover,
+    &:focus {
+      background-color: #0e97b6;
+      color: #fff;
+    }
+  }
+  .signup-link {
+    color: #0c88eb;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+.login-conatiner {
+  & > span {
+    display: flex;
+    text-align: left;
+    margin-bottom:20px ;
+    &:nth-child(2) {
+      padding: 30px 0;
+    }
+  }
+}

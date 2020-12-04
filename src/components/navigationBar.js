@@ -6,8 +6,10 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { Link } from 'react-router-dom';
+
 import { navigationData } from '../store/siteData';
 import AppIcon from './appIcons';
+import MyProfile from './myProfile';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -41,12 +43,16 @@ export default function NavigationBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [activeMenu, setActiveMenu] = React.useState('Home');
+  const [showOverlay, setShowOverlay] = React.useState(false);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   const handleProfileMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget.dataset.name === 'Profile');
+    if (event.currentTarget.dataset.name === 'Profile') {
+      setAnchorEl(event.currentTarget);
+    }
+
     setActiveMenu(event.currentTarget.dataset.name);
   };
 
@@ -73,7 +79,7 @@ export default function NavigationBar() {
     ) : (
       <React.Fragment>
         {menuicon && <AppIcon iconName={menuicon} />}
-        {manuname && manuname !== 'Profile' && <span>{manuname}</span>}
+        {manuname && (manuname !== 'Profile' || isMobileMenuOpen) && <span>{manuname}</span>}
       </React.Fragment>
     );
   };
@@ -89,6 +95,7 @@ export default function NavigationBar() {
       </IconButton>
     );
   };
+
   const getMenuClasName = (menuItem) => {
     let tempClasName = '';
     if (activeMenu === menuItem.manuname && menuItem.manuname !== 'Profile') {
@@ -114,23 +121,7 @@ export default function NavigationBar() {
     return tempMenuList;
   };
 
-  const menuId = 'primary-search-account-menu';
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-    >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-    </Menu>
-  );
-
-  const mobileMenuId = 'primary-search-account-menu-mobile';
+  const mobileMenuId = 'menu-mobile';
   const renderMobileMenu = (
     <Menu
       anchorEl={mobileMoreAnchorEl}
@@ -140,6 +131,7 @@ export default function NavigationBar() {
       transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
+      className={'mobile-menu'}
     >
       {getMenuList(true)}
     </Menu>
@@ -168,7 +160,7 @@ export default function NavigationBar() {
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
-      {renderMenu}
+      <MyProfile anchorEl={anchorEl} isMenuOpen={isMenuOpen} handleMenuClose={handleMenuClose} />
     </div>
   );
 }
