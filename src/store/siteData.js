@@ -44,19 +44,46 @@ const userData = {
     "https://cdn1.iconfinder.com/data/icons/flat-character-color-1/60/flat-design-character_2-512.png",
 };
 
-const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
+const doctorData = [
+  {
+    name: "David Reynold",
+    specilist: "Heart Specilist",
+    profilepic:
+      "https://cdn1.iconfinder.com/data/icons/flat-character-color-1/60/flat-design-character_2-512.png",
+    avalability: {
+      day: ["Mon", " Wed", " & Fri"],
+      time: ["10:00 AM", " & 03:00 PM"],
+    },
+  },
 ];
 
-export { navigationData, userData, months };
+const appointmentBookedList = {
+  "09-12-2020": [
+    {
+      time: "10:00 AM",
+    },
+    {
+      time: "11:00 AM",
+    },
+    {
+      time: "12:00 PM",
+    },
+  ],
+  "20-12-2020": [
+    {
+      time: "11:00 AM",
+    },
+  ],
+  "23-12-2020": [
+    {
+      time: "12:00 AM",
+    },
+  ],
+  "28-12-2020": [
+    {
+      time: "12:00 AM",
+    },
+  ],
+};
+
+export { navigationData, userData, appointmentBookedList, doctorData };

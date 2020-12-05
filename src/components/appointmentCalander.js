@@ -1,4 +1,5 @@
 import React from "react";
+import Grid from "@material-ui/core/Grid";
 import Calander from "./calander";
 import BookAppointmentForm from "./bookAppointmentForm";
 
@@ -35,8 +36,8 @@ export default function AppointmentCalander() {
   };
 
   return (
-    <div className="service-calander">
-      <div>Choose date to get appointment</div>
+    <Grid item xs={12} className="service-calander">
+      <div className="service-form-header">Choose date to get appointment</div>
       <Calander actionMethod={actionMethod} startDate={startDate} />
       {showBookAppointmentForm && (
         <BookAppointmentForm
@@ -45,6 +46,6 @@ export default function AppointmentCalander() {
           selectedDate={startDate}
         />
       )}
-    </div>
+    </Grid>
   );
 }

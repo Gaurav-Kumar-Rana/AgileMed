@@ -1,0 +1,19 @@
+.service-page {
+  text-align: left;
+  padding: 0px 4rem;
+  h2 {
+    padding: 20px 0;
+    text-transform: uppercase;
+  }
+  .service-panel {
+    margin-bottom: 2rem;
+  }
+  .service-form-header {
+    padding: 20px 0;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .service-page {
+    padding: 0px 0.5rem;
+  }
+}

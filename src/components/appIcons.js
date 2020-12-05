@@ -6,6 +6,8 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ArrowBackIosRoundedIcon from "@material-ui/icons/ArrowBackIosRounded";
 import ArrowForwardIosRoundedIcon from "@material-ui/icons/ArrowForwardIosRounded";
 import AddRoundedIcon from "@material-ui/icons/AddRounded";
+import AccessTimeIcon from "@material-ui/icons/AccessTime";
+import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 
 export default function AppIcon(props) {
   const { iconName } = props;
@@ -24,6 +26,10 @@ export default function AppIcon(props) {
       return <ArrowForwardIosRoundedIcon />;
     case "AddRoundedIcon":
       return <AddRoundedIcon />;
+    case "AccessTimeIcon":
+      return <AccessTimeIcon />;
+    case "WhatsAppIcon":
+      return <WhatsAppIcon />;
     default:
       return null;
   }

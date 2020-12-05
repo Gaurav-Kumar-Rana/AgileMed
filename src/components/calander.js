@@ -1,10 +1,12 @@
 import React from "react";
+import moment from "moment";
+import Moment from "react-moment";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import IconButton from "@material-ui/core/IconButton";
 
 import AppIcon from "./appIcons";
-import { months } from "../store/siteData";
+import { appointmentBookedList } from "../store/siteData";
 
 export default function Calander(props) {
   const dayRef = React.useRef();
@@ -15,6 +17,24 @@ export default function Calander(props) {
     onMouseLeaveHandler,
     onClickHandler,
   } = actionMethod;
+
+  const getBookingList = (date) => {
+    let dt = moment(date).format("DD-MM-YYYY");
+
+    let tempList = appointmentBookedList[dt];
+    let bookingList = [];
+    if (tempList) {
+      tempList.map((list, index) => {
+        bookingList.push(
+          <li key={index}>
+            <span>{list.time}</span>
+            <span>Booked</span>
+          </li>
+        );
+      });
+    }
+    return bookingList;
+  };
 
   const renderDayContents = (day, date) => {
     return (
@@ -40,6 +60,9 @@ export default function Calander(props) {
         >
           <AppIcon iconName="AddRoundedIcon" />
         </IconButton>
+        <div className="booked-list">
+          <ul>{getBookingList(date)}</ul>
+        </div>
       </div>
     );
   };
@@ -56,7 +79,7 @@ export default function Calander(props) {
         <AppIcon iconName="ArrowBackIosRoundedIcon" />
       </IconButton>
       <h4>
-        {months[date.getMonth()]} {date.getFullYear()}
+        <Moment format="MMMM YYYY">{date}</Moment>
       </h4>
       <IconButton onClick={increaseMonth} disabled={nextMonthButtonDisabled}>
         <AppIcon iconName="ArrowForwardIosRoundedIcon" />

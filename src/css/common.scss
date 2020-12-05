@@ -58,12 +58,43 @@ $box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
     }
   }
 }
+.booked-list {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  ul {
+    li {
+      font-size: 12px;
+      color: #fff;
+      line-height: 10px;
+      margin-bottom: 3px;
+      padding: 4px;
+      &:first-child {
+        background-color: #fa5b5b;
+      }
+      &:nth-child(2) {
+        background-color: #c9c92d;
+      }
+      &:nth-child(3) {
+        background-color: #09a009;
+      }
+    }
+  }
+}
 @media only screen and (max-width: 600px) {
   .action-btns {
     button {
       width: 100%;
       margin-right: 0px;
       margin-bottom: 10px;
+    }
+  }
+  .booked-list ul li {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    span {
+      display: none;
     }
   }
 }

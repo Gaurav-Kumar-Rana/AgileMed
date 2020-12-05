@@ -6,8 +6,7 @@ $box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
   box-shadow: $box-shadow;
   &.date-picker {
     background-color: #fff;
-    width: 90%;
-    max-width: 1024px;
+    width: 100%;
     .date-picker-header {
       display: flex;
       align-items: center;
@@ -15,10 +14,7 @@ $box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
       background-color: #fff;
       box-shadow: $box-shadow;
       button {
-        padding: 10px;
-        svg {
-          font-size: 16px;
-        }
+        padding: 1rem;
       }
     }
     .react-datepicker__month-container {
@@ -74,8 +70,9 @@ $box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
           padding: 0;
           position: absolute;
           right: -12px;
-          top: 14px;
+          top: calc(50% - 20px);
           z-index: 1;
+          padding: 8px;
         }
       }
     }
