@@ -80,25 +80,26 @@
     justify-content: flex-end;
   }
   .form-section {
-    width: 450px;
-    max-width: 100%;
-    height: 100%;
     border-left: 1px solid #d5d5d5;
-    background: #fff;
     padding: 0px 60px;
-    h3 {
-      padding: 20px;
-      text-align: center;
-    }
-    .form-elem {
-      margin-bottom: 16px;
-      width: 100%;
-    }
-    .link {
-      margin: 20px 0;
-    }
   }
 }
 .show-nav-dialog-overlay {
   top: 65px !important;
+}
+@media only screen and (max-width: 600px) {
+  .login-conatiner {
+    margin: 30px auto;
+  }
+
+  .sigin-conatiner,
+  .register-conatiner {
+    .form-section {
+      padding: 10px;
+      border: 0;
+    }
+  }
+  .show-nav-dialog-overlay {
+    top: 56px !important;
+  }
 }

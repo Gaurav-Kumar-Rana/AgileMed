@@ -1,15 +1,15 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import IconButton from "@material-ui/core/IconButton";
+import MenuItem from "@material-ui/core/MenuItem";
+import Menu from "@material-ui/core/Menu";
+import { Link } from "react-router-dom";
 
-import { navigationData } from '../store/siteData';
-import AppIcon from './appIcons';
-import MyProfile from './myProfile';
+import { navigationData } from "../store/siteData";
+import AppIcon from "./appIcons";
+import MyProfile from "./myProfile";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -19,21 +19,21 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   title: {
-    display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
+    display: "none",
+    [theme.breakpoints.up("sm")]: {
+      display: "block",
     },
   },
   sectionDesktop: {
-    display: 'none',
-    [theme.breakpoints.up('md')]: {
-      display: 'flex',
+    display: "none",
+    [theme.breakpoints.up("md")]: {
+      display: "flex",
     },
   },
   sectionMobile: {
-    display: 'flex',
-    [theme.breakpoints.up('md')]: {
-      display: 'none',
+    display: "flex",
+    [theme.breakpoints.up("md")]: {
+      display: "none",
     },
   },
 }));
@@ -42,16 +42,15 @@ export default function NavigationBar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-  const [activeMenu, setActiveMenu] = React.useState('Home');
+  const [activeMenu, setActiveMenu] = React.useState("Home");
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   const handleProfileMenuOpen = (event) => {
-    if (event.currentTarget.dataset.name === 'Profile') {
+    if (event.currentTarget.dataset.name === "Profile") {
       setAnchorEl(event.currentTarget);
     }
-
     setActiveMenu(event.currentTarget.dataset.name);
   };
 
@@ -71,14 +70,16 @@ export default function NavigationBar() {
   const getMenuElem = (menuData) => {
     const { isNavigationmenu, manuname, menuicon, menulink } = menuData;
     return isNavigationmenu ? (
-      <Link to={menulink} className={'menu-link'}>
+      <Link to={menulink} className={"menu-link"}>
         {menuicon && <AppIcon iconName={menuicon} />}
         {manuname && <span>{manuname}</span>}
       </Link>
     ) : (
       <React.Fragment>
         {menuicon && <AppIcon iconName={menuicon} />}
-        {manuname && (manuname !== 'Profile' || isMobileMenuOpen) && <span>{manuname}</span>}
+        {manuname && (manuname !== "Profile" || isMobileMenuOpen) && (
+          <span>{manuname}</span>
+        )}
       </React.Fragment>
     );
   };
@@ -89,18 +90,23 @@ export default function NavigationBar() {
         {getMenuElem(menuData)}
       </MenuItem>
     ) : (
-      <IconButton {...otherProps} data-name={menuData.manuname} disableFocusRipple={true} disableRipple={true}>
+      <IconButton
+        {...otherProps}
+        data-name={menuData.manuname}
+        disableFocusRipple={true}
+        disableRipple={true}
+      >
         {getMenuElem(menuData)}
       </IconButton>
     );
   };
 
   const getMenuClasName = (menuItem) => {
-    let tempClasName = '';
-    if (activeMenu === menuItem.manuname && menuItem.manuname !== 'Profile') {
-      tempClasName = 'active';
-    } else if (menuItem.manuname === 'Profile') {
-      tempClasName = 'my-profile';
+    let tempClasName = "";
+    if (activeMenu === menuItem.manuname && menuItem.manuname !== "Profile") {
+      tempClasName = "active";
+    } else if (menuItem.manuname === "Profile") {
+      tempClasName = "my-profile";
     }
     return tempClasName;
   };
@@ -120,17 +126,17 @@ export default function NavigationBar() {
     return tempMenuList;
   };
 
-  const mobileMenuId = 'menu-mobile';
+  const mobileMenuId = "menu-mobile";
   const renderMobileMenu = (
     <Menu
       anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      anchorOrigin={{ vertical: "top", horizontal: "right" }}
       id={mobileMenuId}
       keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+      transformOrigin={{ vertical: "top", horizontal: "right" }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
-      className={'mobile-menu'}
+      className={"mobile-menu"}
     >
       {getMenuList(true)}
     </Menu>
@@ -138,10 +144,15 @@ export default function NavigationBar() {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static" className={'nav-bar'}>
+      <AppBar position="static" className={"nav-bar"}>
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="open drawer">
-            <AppIcon iconName={'MenuIcon'} />
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="open drawer"
+          >
+            <AppIcon iconName={"MenuIcon"} />
           </IconButton>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>{getMenuList()}</div>
@@ -153,13 +164,17 @@ export default function NavigationBar() {
               onClick={handleMobileMenuOpen}
               color="inherit"
             >
-              <AppIcon iconName={'MoreIcon'} />
+              <AppIcon iconName={"MoreIcon"} />
             </IconButton>
           </div>
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
-      <MyProfile anchorEl={anchorEl} isMenuOpen={isMenuOpen} handleMenuClose={handleMenuClose} />
+      <MyProfile
+        anchorEl={anchorEl}
+        isMenuOpen={isMenuOpen}
+        handleMenuClose={handleMenuClose}
+      />
     </div>
   );
 }

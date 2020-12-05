@@ -1,3 +1,5 @@
+$active-color: rgba(16, 181, 223, 1);
+$box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
 .red-text {
   color: red;
 }
@@ -19,4 +21,49 @@
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
+}
+.form-section {
+  width: 450px;
+  max-width: 100%;
+  height: 100%;
+  background: #fff;
+  h3 {
+    padding: 20px;
+    text-align: center;
+  }
+  .form-elem {
+    margin-bottom: 16px;
+    width: 100%;
+  }
+  .link {
+    margin: 20px 0;
+  }
+}
+.action-btns {
+  button {
+    border-radius: 0;
+    margin-right: 10px;
+    box-shadow: $box-shadow;
+    padding: 5px 30px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  .active {
+    background-color: $active-color;
+    color: #fff;
+    &:hover,
+    &:focus {
+      background-color: $active-color;
+    }
+  }
+}
+@media only screen and (max-width: 600px) {
+  .action-btns {
+    button {
+      width: 100%;
+      margin-right: 0px;
+      margin-bottom: 10px;
+    }
+  }
 }

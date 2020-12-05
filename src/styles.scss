@@ -12,9 +12,12 @@ a {
   font-family: sans-serif;
   text-align: center;
 }
-@import './css/common.scss';
-@import './css/navigationBar.scss';
-@import './css/overlay.scss';
-@import './css/myProfile.scss';
-@import './css/login.scss';
-@import './css/homePage.scss';
+@import url("./css/datePicker.scss");
+@import url("./css/modalBox.scss");
+@import url("./css/common.scss");
+@import url("./css/navigationBar.scss");
+@import url("./css/overlay.scss");
+@import url("./css/myProfile.scss");
+@import url("./css/login.scss");
+@import url("./css/homePage.scss");
+@import url("./css/appointmentForm.scss");

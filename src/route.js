@@ -1,7 +1,8 @@
-import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-import HomePage from './pages/home';
-import ServicePage from './pages/service';
+import React from "react";
+import { Switch, Route } from "react-router-dom";
+import HomePage from "./pages/home";
+import ServicePage from "./pages/service";
+import Appointment from "./pages/appointment";
 
 export default function AppContainer() {
   return (
@@ -15,6 +16,9 @@ export default function AppContainer() {
         </Route>
         <Route path="/service">
           <ServicePage />
+        </Route>
+        <Route path="/appointment">
+          <Appointment />
         </Route>
       </Switch>
     </div>

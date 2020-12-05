@@ -1,0 +1,54 @@
+$box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+.appointment-conatiner {
+  display: flex;
+  .time-calander {
+    height: 65vh;
+    overflow: auto;
+  }
+  .appointment-details {
+    display: flex;
+    flex-direction: column;
+    .appointment-datetime-panel {
+      font-weight: 600;
+      font-size: 20px;
+      padding: 36px;
+      display: flex;
+      box-shadow: $box-shadow;
+      margin-bottom: 24px;
+      span {
+        margin-left: 20px;
+      }
+    }
+    .appointment-patient-form {
+      &.form-section {
+        margin-left: 24px;
+        width: 350px;
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .appointment-conatiner {
+    .time-calander {
+      max-height: 200px;
+      overflow: auto;
+      margin-bottom: 16px;
+    }
+    .appointment-details {
+      .appointment-datetime-panel {
+        padding: 5px;
+        flex-direction: column;
+        span {
+          margin-left: 20px;
+        }
+      }
+      .appointment-patient-form {
+        &.form-section {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
